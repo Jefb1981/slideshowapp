@@ -1,0 +1,29 @@
+<slide>:
+<title>: Presentatie
+<subtitle>: Slide Show JabberPoint
+<level1>: Welkom!
+<level2>: Het is een genoegen om u hier te zien!
+<level3>: Datum: 20 OKtober 2020
+<level3>: Jhaner en Phillip
+<level4>: Open Universiteit
+<level4>: Locatie Heerlen
+<figure>: http://www.slide1.nl.image
+
+<slide>:
+<title>: Agenda
+<subtitle>:
+<level1>: 10:00 Slide Show JabberPoint Presentatie
+<level2>: 10:15 Werkwijze
+<level2>: 10:30 Demo
+<level2>: 10:45 Vragen
+<level2>: 11:00 Einde
+<figure>: http://www.slide2.nl
+
+<slide>:
+<title>: Hello World!
+<subtitle>:
+<level1>: Slide Show JabberPoint Presentatie
+<level2>: 
+<level3>:
+<level4>: This is a Java Application
+<figure>: http://www.slide3.nl
