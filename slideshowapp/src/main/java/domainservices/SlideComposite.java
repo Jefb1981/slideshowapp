@@ -1,6 +1,6 @@
 package domainservices;
 
-import domaincore.Level; 
+import domaincore.Level;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,10 @@ public class SlideComposite extends SlideComponent {
 
     public SlideComponentInterface getSlide(int number) {
         return children.get(number);
+    }
+
+    public int getSize() {
+        return children.size();
     }
 
     @Override

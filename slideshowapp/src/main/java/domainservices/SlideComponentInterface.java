@@ -8,6 +8,8 @@ public interface SlideComponentInterface {
     int getX();
 
     int getY();
+    
+    int getSize();
 
     void select();
 

@@ -1,6 +1,6 @@
 package infrastructure;
 
-import domaincore.Level; 
+import domaincore.Level;
 import domainservices.SlideComposite;
 import domainservices.SlideComponentInterface;
 import java.util.ArrayList;
@@ -19,6 +19,7 @@ public class TxtFileProcessor extends FileProcessor {
     public TxtFileProcessor() {
         slideProcessor = new SlideProcessor();
         slidesArray = new ArrayList<>();
+        slideComposite = new SlideComposite();
     }
 
     @Override
@@ -32,16 +33,14 @@ public class TxtFileProcessor extends FileProcessor {
     }
 
     private ArrayList<SlideComponentInterface> loadTxtFile(String filePath) {
-        String fileContent = readLineByLine(filePath); 
+        String fileContent = readLineByLine(filePath);
         String[] arrOfStr = fileContent.split("\\r?\\n");
         int xasLevel = 10;
         int yasLevel = 0;
-        slideComposite = null;
-        
-        for (String string : arrOfStr) {
 
+        for (String string : arrOfStr) {
             if (string.contains("<slide>:") == true) {
-                if (slideComposite != null) {
+                if (slideComposite.getSize() != 0) {
                     // Add slide to the list
                     slidesArray.add(slideComposite);
                 }
@@ -51,11 +50,13 @@ public class TxtFileProcessor extends FileProcessor {
                 yasLevel = 0;
             } else {
                 //Add elememt to slideComposite
-                slideComposite.add(slideProcessor.createSlideElements(string, new Level(xasLevel, yasLevel += 20)));
+                if (!string.isEmpty()) {
+                    slideComposite.add(slideProcessor.createSlideElements(string, new Level(xasLevel, yasLevel += 20)));
+                }
             }
         }
         //  when just one slideCOmposite is created
-        if (slideComposite != null) {
+        if (slideComposite.getSize() != 0) {
             // Add slide to the list
             slidesArray.add(slideComposite);
         }

@@ -43,4 +43,9 @@ public class Subtitle extends SlideComponent {
         // TODO Auto-generated method stub
 
     }
+
+    @Override
+    public int getSize() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
 }

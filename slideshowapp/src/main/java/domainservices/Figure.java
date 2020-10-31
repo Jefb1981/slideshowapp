@@ -1,15 +1,11 @@
 package domainservices;
 
 import domaincore.Level;
-import domaincore.Level;
-import domainservices.SlideComponent;
-import domainservices.SlideComponentInterface;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
-
 // this is not a image is a figure create with x , y and z coordinates
 // what is a little limited form of images
+
 public class Figure extends SlideComponent {
 
     private String url;
@@ -46,6 +42,11 @@ public class Figure extends SlideComponent {
     public void clear() {
         // TODO Auto-generated method stub
 
+    }
+
+    @Override
+    public int getSize() {
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
 }

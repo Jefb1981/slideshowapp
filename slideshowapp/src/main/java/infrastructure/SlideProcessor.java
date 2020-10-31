@@ -48,7 +48,7 @@ public class SlideProcessor {
         if (CheckTagTextLine(data, CreateTag(figureTag)) == true) {
             return new Figure(Color.BLUE, data.replace(CreateTag(figureTag), emptyString), elementLevel);
         }
-
+ 
         return new Title(Color.RED, "No Elements", elementLevel);
     }
 
