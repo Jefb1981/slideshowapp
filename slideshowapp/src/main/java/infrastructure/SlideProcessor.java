@@ -1,74 +1,62 @@
 package infrastructure;
 
-import domaincore.Level;
-import domaincore.SlideInternalDataModel;
+import domaincore.Level; 
 import domainservices.Figure;
-import domainservices.SlideComponentInterface;
-import domainservices.SlideComposite;
+import domainservices.SlideComponentInterface; 
 import domainservices.Subtitle;
 import domainservices.Text;
 import domainservices.Title;
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
+import java.awt.Color; 
 
 public class SlideProcessor {
 
-    private ArrayList<SlideComponentInterface> slidesComponentsList;
-    private Map<String, SlideInternalDataModel> sortedMap;
+    private static final String titleTag = "title";
+    private static final String subTitleTag = "subtitle";
+    private static final String level1Tag = "level1";
+    private static final String level2Tag = "level2";
+    private static final String level3Tag = "level3";
+    private static final String level4Tag = "level4";
+    private static final String figureTag = "figure";
+    private static final String emptyString = "";
 
-    public ArrayList<SlideComponentInterface> createSlides(Map<String, SlideInternalDataModel> data) {
-        SlideComponentInterface slide;
-        int x_as = 20;
-        slidesComponentsList = new ArrayList<>();
-        // TreeMap is only  used to sort the elements by the Key
-        sortedMap = new TreeMap<String, SlideInternalDataModel>(data);
+    public SlideComponentInterface createSlideElements(String data, Level elementLevel) {
 
-        for (Map.Entry<String, SlideInternalDataModel> entry : sortedMap.entrySet()) {
-            slide = new SlideComposite();
-
-            if (entry.getValue().getTitle() != null) { 
-                slide.add(new Title(Color.BLUE, entry.getValue().getTitle(), new Level(10, x_as += 20)));
-            }
-
-            if (entry.getValue().getSubTitle() != null) {
-                slide.add(new Subtitle(Color.BLUE, entry.getValue().getSubTitle(), new Level(10, x_as += 20)));
-            }
-            if (entry.getValue().getLevel1() != null) {
-                slide.add(new Text(Color.BLUE, entry.getValue().getLevel1(), new Level(10, x_as += 20)));
-            }
-            if (entry.getValue().getLevel2() != null) {
-                for (String s : SplitTextLine(entry.getValue().getLevel2())) {
-                    if (!s.isEmpty()) {
-                        slide.add(new Text(Color.BLUE, s, new Level(10, x_as += 20)));
-                    }
-                }
-            }
-            if (entry.getValue().getLevel3() != null) {
-                for (String s : SplitTextLine(entry.getValue().getLevel3())) {
-                    slide.add(new Text(Color.BLUE, s, new Level(10, x_as += 20)));
-                }
-            }
-
-            if (entry.getValue().getLevel4() != null) {
-                slide.add(new Text(Color.BLUE, entry.getValue().getLevel4(), new Level(10, x_as += 20)));
-            }
-
-            if (entry.getValue().getFigure() != null) {
-                slide.add(new Figure(Color.RED, entry.getValue().getFigure(), new Level(10, x_as += 20)));
-            }
-
-            slidesComponentsList.add(slide);
-            x_as = 20;
+        if (CheckTagTextLine(data, CreateTag(titleTag)) == true) {
+            return new Title(Color.BLUE, data.replace(CreateTag(titleTag), emptyString), elementLevel);
         }
 
-        return slidesComponentsList;
+        if (CheckTagTextLine(data, CreateTag(subTitleTag)) == true) {
+            return new Subtitle(Color.BLUE, data.replace(CreateTag(subTitleTag), emptyString), elementLevel);
+        }
+
+        if (CheckTagTextLine(data, CreateTag(level1Tag)) == true) {
+            return new Text(Color.BLUE, data.replace(CreateTag(level1Tag), emptyString), elementLevel);
+        }
+
+        if (CheckTagTextLine(data, CreateTag(level2Tag)) == true) {
+            return new Text(Color.BLUE, data.replace(CreateTag(level2Tag), emptyString), elementLevel);
+        }
+
+        if (CheckTagTextLine(data, CreateTag(level3Tag)) == true) {
+            return new Text(Color.BLUE, data.replace(CreateTag(level3Tag), emptyString), elementLevel);
+        }
+
+        if (CheckTagTextLine(data, CreateTag(level4Tag)) == true) {
+            return new Text(Color.BLUE, data.replace(CreateTag(level4Tag), emptyString), elementLevel);
+        }
+
+        if (CheckTagTextLine(data, CreateTag(figureTag)) == true) {
+            return new Figure(Color.BLUE, data.replace(CreateTag(figureTag), emptyString), elementLevel);
+        }
+
+        return new Title(Color.RED, "No Elements", elementLevel);
     }
 
-    private String[] SplitTextLine(String text) {
-        String delimiters = " ;\\s*|\\; \\s*";
-        String[] arrOfStr = text.split(delimiters);
-        return arrOfStr;
+    private String CreateTag(String tag) {
+        return "<" + tag + ">:";
+    }
+
+    private boolean CheckTagTextLine(String data, String tagToFind) {
+        return data.contains(tagToFind);
     }
 }

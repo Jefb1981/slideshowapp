@@ -1,8 +1,6 @@
 package domainservices;
 
-import domaincore.Level;
-import domainservices.SlideComponent;
-import domainservices.SlideComponentInterface;
+import domaincore.Level; 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;

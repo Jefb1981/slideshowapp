@@ -1,22 +1,9 @@
 package infrastructure;
 
-import domainservices.Figure;
-import domainservices.Subtitle;
-import domainservices.Title;
-import domainservices.Text;
-import domaincore.SlideInternalDataModel;
-import domaincore.Level;
-import domaincore.SlideHelpers;
+import domaincore.Level; 
 import domainservices.SlideComposite;
 import domainservices.SlideComponentInterface;
-import java.awt.Color;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -25,16 +12,13 @@ import java.util.stream.Stream;
 
 public class TxtFileProcessor extends FileProcessor {
 
-    private Map<String, SlideInternalDataModel> slides;
-    private Map<String, SlideComponentInterface> slidesNew;
-    private SlideProcessor SlideProcessor;
-    private InternalModelMapper dataMapper;
+    private SlideProcessor slideProcessor;
+    private ArrayList<SlideComponentInterface> slidesArray;
+    private SlideComponentInterface slideComposite;
 
     public TxtFileProcessor() {
-        slides = new HashMap<String, SlideInternalDataModel>();
-        slidesNew =  new HashMap<String, SlideComponentInterface>();
-        SlideProcessor = new SlideProcessor();
-        dataMapper = new InternalModelMapper();
+        slideProcessor = new SlideProcessor();
+        slidesArray = new ArrayList<>();
     }
 
     @Override
@@ -48,44 +32,40 @@ public class TxtFileProcessor extends FileProcessor {
     }
 
     private ArrayList<SlideComponentInterface> loadTxtFile(String filePath) {
-        String fileContent = readLineByLine(filePath);
-        String delimiters = "\\r?\\n";
-        String[] arrOfStr = fileContent.split(delimiters);
-        slides = new HashMap<String, SlideInternalDataModel>();
-
-        int slideNumber = 1;
-        SlideInternalDataModel slideData = null;
-        SlideComponentInterface slideComponentInterface = null;
-
+        String fileContent = readLineByLine(filePath); 
+        String[] arrOfStr = fileContent.split("\\r?\\n");
+        int xasLevel = 10;
+        int yasLevel = 0;
+        slideComposite = null;
+        
         for (String string : arrOfStr) {
 
             if (string.contains("<slide>:") == true) {
-                if (slideData != null || slideComponentInterface != null) {
-                    slides.put("slide_" + slideNumber, slideData);
-                    slidesNew.put("slide_" + slideNumber,  null);
-                    slideNumber++;
+                if (slideComposite != null) {
+                    // Add slide to the list
+                    slidesArray.add(slideComposite);
                 }
                 // create a new object
-                slideData = new SlideInternalDataModel();
+                slideComposite = new SlideComposite();
+                // reset the elements level
+                yasLevel = 0;
             } else {
-                slideData = dataMapper.createInternalObject(string, slideData);
-                slideComponentInterface = dataMapper.createArray(string);
+                //Add elememt to slideComposite
+                slideComposite.add(slideProcessor.createSlideElements(string, new Level(xasLevel, yasLevel += 20)));
             }
         }
-
-        if (slideData != null) {
-            slides.put("slide_" + slideNumber, slideData);
+        //  when just one slideCOmposite is created
+        if (slideComposite != null) {
+            // Add slide to the list
+            slidesArray.add(slideComposite);
         }
-//        System.out.println(fileContent);
-//        SlideHelpers.printDataObject(slideData);
-//        SlideHelpers.PrintMapContent(slides);
-
-        return SlideProcessor.createSlides(slides);
+        //SlideHelpers.PrintMappedContentSlides(slidesComposite);
+        return slidesArray;
     }
 
     private static String readLineByLine(String filePath) {
         StringBuilder contentBuilder = new StringBuilder();
-        try (Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
+        try ( Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
             stream.forEach(s -> contentBuilder.append(s).append("\n"));
 
         } catch (IOException e) {

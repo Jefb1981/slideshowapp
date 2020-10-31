@@ -4,7 +4,6 @@ import infrastructure.TxtFileProcessor;
 import domaincore.Level;
 import domainservices.SlideComponentInterface;
 import domainservices.SlideComposite;
-import domainservices.SlideComposite;
 import domainservices.Title;
 import infrastructure.FileProcessor;
 import javax.swing.*;
@@ -182,8 +181,7 @@ public class Projector {
         String fileName = file.getName();
         if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0) {
             return fileName.substring(fileName.lastIndexOf(".") + 1);
-        } else {
-            return "";
         }
+        return "";
     }
 }
