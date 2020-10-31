@@ -1,12 +1,17 @@
 package infrastructure;
 
-import domaincore.Level; 
+import domaincore.Level;
 import domainservices.Figure;
-import domainservices.SlideComponentInterface; 
+import domainservices.SlideComponentInterface;
 import domainservices.Subtitle;
 import domainservices.Text;
 import domainservices.Title;
-import java.awt.Color; 
+import java.awt.Color;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public class SlideProcessor {
 
@@ -18,6 +23,16 @@ public class SlideProcessor {
     private static final String level4Tag = "level4";
     private static final String figureTag = "figure";
     private static final String emptyString = "";
+
+    public static String readLineByLineFileContent(String filePath) {
+        StringBuilder contentBuilder = new StringBuilder();
+        try ( Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
+            stream.forEach(s -> contentBuilder.append(s).append("\n"));
+
+        } catch (IOException e) {
+        }
+        return contentBuilder.toString();
+    }
 
     public SlideComponentInterface createSlideElements(String data, Level elementLevel) {
 
@@ -48,7 +63,7 @@ public class SlideProcessor {
         if (CheckTagTextLine(data, CreateTag(figureTag)) == true) {
             return new Figure(Color.BLUE, data.replace(CreateTag(figureTag), emptyString), elementLevel);
         }
- 
+
         return new Title(Color.RED, "No Elements", elementLevel);
     }
 

@@ -4,16 +4,11 @@ import domaincore.Level;
 import domainservices.SlideComposite;
 import domainservices.SlideComponentInterface;
 import java.util.ArrayList;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 public class TxtFileProcessor extends FileProcessor {
 
-    private SlideProcessor slideProcessor;
-    private ArrayList<SlideComponentInterface> slidesArray;
+    private final SlideProcessor slideProcessor;
+    private final ArrayList<SlideComponentInterface> slidesArray;
     private SlideComponentInterface slideComposite;
 
     public TxtFileProcessor() {
@@ -33,7 +28,7 @@ public class TxtFileProcessor extends FileProcessor {
     }
 
     private ArrayList<SlideComponentInterface> loadTxtFile(String filePath) {
-        String fileContent = readLineByLine(filePath);
+        String fileContent = SlideProcessor.readLineByLineFileContent(filePath);
         String[] arrOfStr = fileContent.split("\\r?\\n");
         int xasLevel = 10;
         int yasLevel = 0;
@@ -62,16 +57,5 @@ public class TxtFileProcessor extends FileProcessor {
         }
         //SlideHelpers.PrintMappedContentSlides(slidesComposite);
         return slidesArray;
-    }
-
-    private static String readLineByLine(String filePath) {
-        StringBuilder contentBuilder = new StringBuilder();
-        try ( Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
-            stream.forEach(s -> contentBuilder.append(s).append("\n"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return contentBuilder.toString();
     }
 }
