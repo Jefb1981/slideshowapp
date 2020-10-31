@@ -29,6 +29,7 @@ public class HtmlFileProcessor extends FileProcessor {
 
     private ArrayList<SlideComponentInterface> loadHtmlFile(String filePath) {
 
+        // TODO: refactor make it more pretty
         String delimiters = ";;\\s*|\\;; \\s*";
         String replacement = ";;";
         String regularExpression = "(?i)<br[^>]*>";

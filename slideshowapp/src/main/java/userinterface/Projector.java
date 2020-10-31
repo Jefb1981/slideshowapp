@@ -17,13 +17,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Projector {
 
     private EditorCanvas canvas;
     private int currentSlideNumber = 0;
     private SlideComponentInterface slideComposite = new SlideComposite();
-    private ArrayList<SlideComponentInterface> listSlides = new ArrayList<SlideComponentInterface>();
+    private ArrayList<SlideComponentInterface> listSlides = new ArrayList<>();
     private JFileChooser jFileChooser;
     private FileNameExtensionFilter fileNameExtensionFilter;
 
@@ -156,31 +157,41 @@ public class Projector {
         jFileChooser.setAcceptAllFileFilterUsed(false);
         fileNameExtensionFilter = new FileNameExtensionFilter("xml", "Html", "txt");
         jFileChooser.addChoosableFileFilter(fileNameExtensionFilter);
-        
-        // Todo: has to change to multiple selection for Html files
+
+        jFileChooser.setMultiSelectionEnabled(true);
+        jFileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
         int returnValue = jFileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
-            String extension = getFileExtension(jFileChooser.getSelectedFile());
-            FileProcessor dataProcessor = null;
-            switch (extension) {
-                case "txt":
-                    dataProcessor = new TxtFileProcessor();
-                    break;
-                case "html":
-                    dataProcessor = new HtmlFileProcessor();
-                    break;
-                case "xml":
-                    dataProcessor = new XmlFileProcessor();
-                    break;
-                default:
-                    break;
+            listSlides.clear();
+            File[] files = jFileChooser.getSelectedFiles();
+            FileProcessor dataProcessor
+                    = getInstanceFileProcessor(getFileExtension(jFileChooser.getSelectedFile()));
+
+            if (dataProcessor != null && files.length > 0) {
+                for (File file : files) {
+                    if (file.isFile()) {
+                        listSlides.addAll(dataProcessor.loadFile(file.getAbsolutePath()));
+                    }
+                }
+
+                if (!listSlides.isEmpty()) {
+                    loadShapes(listSlides.get(currentSlideNumber));
+                }
             }
-            // Fill the slide with the data from the file
-            listSlides = dataProcessor.loadFile(jFileChooser.getSelectedFile().getPath());
-            // check if slides are in the composite to show
-            if (!listSlides.isEmpty()) {
-                loadShapes(listSlides.get(currentSlideNumber));
-            }
+        }
+    }
+
+    private FileProcessor getInstanceFileProcessor(String extension) {
+        switch (extension) {
+            case "txt":
+                return new TxtFileProcessor();
+            case "html":
+                return new HtmlFileProcessor();
+            case "xml":
+                return new XmlFileProcessor();
+            default:
+                return null;
         }
     }
 
