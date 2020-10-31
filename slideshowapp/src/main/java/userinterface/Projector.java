@@ -6,6 +6,8 @@ import domainservices.SlideComponentInterface;
 import domainservices.SlideComposite;
 import domainservices.Title;
 import infrastructure.FileProcessor;
+import infrastructure.HtmlFileProcessor;
+import infrastructure.XmlFileProcessor;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -154,6 +156,8 @@ public class Projector {
         jFileChooser.setAcceptAllFileFilterUsed(false);
         fileNameExtensionFilter = new FileNameExtensionFilter("xml", "Html", "txt");
         jFileChooser.addChoosableFileFilter(fileNameExtensionFilter);
+        
+        // Todo: has to change to multiple selection for Html files
         int returnValue = jFileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             String extension = getFileExtension(jFileChooser.getSelectedFile());
@@ -163,17 +167,20 @@ public class Projector {
                     dataProcessor = new TxtFileProcessor();
                     break;
                 case "html":
-                    //dataProcessor = new HTMLProcessor();
+                    dataProcessor = new HtmlFileProcessor();
                     break;
                 case "xml":
-                    //dataProcessor = new XMLProcessor();
+                    dataProcessor = new XmlFileProcessor();
                     break;
                 default:
                     break;
             }
             // Fill the slide with the data from the file
             listSlides = dataProcessor.loadFile(jFileChooser.getSelectedFile().getPath());
-            loadShapes(listSlides.get(currentSlideNumber));
+            // check if slides are in the composite to show
+            if (!listSlides.isEmpty()) {
+                loadShapes(listSlides.get(currentSlideNumber));
+            }
         }
     }
 

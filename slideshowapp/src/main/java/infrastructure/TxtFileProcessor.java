@@ -18,8 +18,8 @@ public class TxtFileProcessor extends FileProcessor {
     }
 
     @Override
-    public ArrayList<SlideComponentInterface> loadFile(String fileLocation) {
-        return loadTxtFile(fileLocation);
+    public ArrayList<SlideComponentInterface> loadFile(String filePath) {
+        return loadTxtFile(filePath);
     }
 
     @Override
@@ -28,8 +28,8 @@ public class TxtFileProcessor extends FileProcessor {
     }
 
     private ArrayList<SlideComponentInterface> loadTxtFile(String filePath) {
-        String fileContent = SlideProcessor.readLineByLineFileContent(filePath);
-        String[] arrOfStr = fileContent.split("\\r?\\n");
+        String txtContent = SlideProcessor.readLineByLineFileContent(filePath);
+        String[] arrOfStr = txtContent.split("\\r?\\n");
         int xasLevel = 10;
         int yasLevel = 0;
 

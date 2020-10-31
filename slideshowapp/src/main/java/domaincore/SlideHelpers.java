@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public final class SlideHelpers {
 
-    public static void printDataObject(SlideComponentInterface slideInfo) {
-        System.out.println("*********** print Data Object *********");
+    public static void printData(String info) {
+        System.out.println("******" + info);
 
     }
 

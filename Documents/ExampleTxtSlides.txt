@@ -1,9 +1,10 @@
 <slide>:
 <title>:Presentatie
 <subtitle>:Slide Show JabberPoint
+<figure>:http://www.slide1.nl.image
 <level1>:Welkom! 
 <level2>:Het is een genoegen om u hier te zien!
 <level3>:Datum: 20 OKtober 2020
 <level3>:Presentators: Phillip and Jhaner
 <level4>:Open Universiteit
-<figure>:http://www.slide1.nl.image
+
