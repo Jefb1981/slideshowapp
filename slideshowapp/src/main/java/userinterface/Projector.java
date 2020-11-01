@@ -216,11 +216,14 @@ public class Projector {
         return "";
     }
 
+    /* TODO: remove! never add methods to facilitate unittests 
+     * for testing purposes
+     */
     public SlideComponentInterface getSlideComposite() {
         return slideComposite;
     }
 
-    /*
+    /* TODO: remove! never add methods to facilitate unittests 
      * for testing purposes
      */
     public String testFileExtension() {

@@ -1,7 +1,6 @@
 package infrastructure;
 
-import domaincore.Level;
-import domaincore.SlideHelpers;
+import domaincore.Level; 
 import domainservices.Figure;
 import domainservices.SlideComponentInterface;
 import domainservices.SlideComposite;
@@ -28,8 +27,6 @@ public class HtmlFileProcessor extends FileProcessor {
     }
 
     private ArrayList<SlideComponentInterface> loadHtmlFile(String filePath) {
-
-        // TODO: refactor make it more pretty
         String delimiters = ";;\\s*|\\;; \\s*";
         String replacement = ";;";
         String regularExpression = "(?i)<br[^>]*>";
@@ -86,7 +83,7 @@ public class HtmlFileProcessor extends FileProcessor {
         }
     }
 
-    private String getElementById(Document htmlDocument, String tag) { 
+    private String getElementById(Document htmlDocument, String tag) {
         return htmlDocument.body().getElementById(tag).text();
     }
 
