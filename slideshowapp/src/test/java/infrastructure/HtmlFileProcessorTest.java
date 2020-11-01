@@ -25,24 +25,13 @@ public class HtmlFileProcessorTest {
     @Test
     public void testLoadFile() {
         System.out.println("load HTML file");
-        String filePath = "C:\\Users\\Phillip\\Documents\\NetBeansProjects\\slideshow\\Documents\\Slide_html_example.html";
+        String filePath = "C:\\Users\\Phillip\\Documents\\NetBeansProjects\\slideshowapp\\Documents\\slide_1_html_example.html";
         HtmlFileProcessor instance = new HtmlFileProcessor();
         int expResult = 1;
         ArrayList<SlideComponentInterface> result = instance.loadFile(filePath);
-        assertEquals(expResult, result);
+        assertEquals(expResult, result.size());
         // TODO review the generated test code and remove the default call to fail.
     }
 
-    /**
-     * Test of saveFile method, of class HtmlFileProcessor.
-     */
-    @Test
-    public void testSaveFile() {
-        System.out.println("saveFile");
-        String fileName = "";
-        HtmlFileProcessor instance = new HtmlFileProcessor();
-        instance.saveFile(fileName);
-        // TODO review the generated test code and remove the default call to fail.
-    }
     
 }
