@@ -24,7 +24,7 @@ public class TxtFileProcessorTest {
      */
     @Test
     public void testLoadFile() {
-        System.out.println("loadFile");
+        System.out.println("load text file");
         String filePath = "C:\\Users\\Phillip\\Documents\\NetBeansProjects\\slideshow\\Documents\\Slide_txt_example.txt";
         TxtFileProcessor txtFileProcessor = new TxtFileProcessor();
         ArrayList<SlideComponentInterface> expResult = null;
