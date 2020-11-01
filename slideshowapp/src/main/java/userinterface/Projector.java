@@ -17,7 +17,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Projector {
 
@@ -206,6 +205,9 @@ public class Projector {
     public SlideComponentInterface getSlideComposite() {
         return slideComposite;
     }
-    
-    
+
+    public String testFileExtension() {
+        File file = new File("C:\\Users\\Phillip\\Documents\\NetBeansProjects\\slideshow\\Documents\\Slide_txt_example.txt");
+        return getFileExtension(file);
+    }
 }

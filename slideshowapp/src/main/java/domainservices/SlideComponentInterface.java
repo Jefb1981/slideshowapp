@@ -1,7 +1,6 @@
 package domainservices;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public interface SlideComponentInterface {
 
