@@ -206,8 +206,11 @@ public class Projector {
         return slideComposite;
     }
 
+    /*
+     * for testing purposes
+     */
     public String testFileExtension() {
-        File file = new File("C:\\Users\\Phillip\\Documents\\NetBeansProjects\\slideshow\\Documents\\Slide_txt_example.txt");
+        File file = new File("..\\Documents\\Slide_txt_example.txt");
         return getFileExtension(file);
     }
 }

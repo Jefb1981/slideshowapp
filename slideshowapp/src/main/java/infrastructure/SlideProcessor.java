@@ -30,6 +30,7 @@ public class SlideProcessor {
             stream.forEach(s -> contentBuilder.append(s).append("\n"));
 
         } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
         return contentBuilder.toString();
     }
