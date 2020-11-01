@@ -1,3 +1,5 @@
+package slideshowapp;
+
 
 import userinterface.Projector;
 

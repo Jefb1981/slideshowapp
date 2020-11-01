@@ -202,4 +202,10 @@ public class Projector {
         }
         return "";
     }
+
+    public SlideComponentInterface getSlideComposite() {
+        return slideComposite;
+    }
+    
+    
 }
