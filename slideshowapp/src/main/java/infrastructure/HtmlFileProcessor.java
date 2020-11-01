@@ -143,5 +143,4 @@ public class HtmlFileProcessor extends FileProcessor {
         slidesArray.add(slideComposite);
         return slidesArray;
     }
-
 }

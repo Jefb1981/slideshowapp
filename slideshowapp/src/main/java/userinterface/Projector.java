@@ -75,7 +75,7 @@ public class Projector {
         private static final long serialVersionUID = 1L;
         JFrame frame;
         JMenu navigation, file;
-        JMenuItem next, previous, load;
+        JMenuItem next, previous, load, save;
 
         private static final int PADDING = 1;
 
@@ -101,13 +101,17 @@ public class Projector {
             next = new JMenuItem("Next");
             previous = new JMenuItem("Previuos");
             load = new JMenuItem("Load");
+            save = new JMenuItem("Save");
             // Add Actions
             next.addActionListener((evt) -> this.actionNextSlide(evt));
             previous.addActionListener((evt) -> this.actionPreviousSlide(evt));
             load.addActionListener((evt) -> this.actionLoadSlide(evt));
+            save.addActionListener((evt) -> this.actionSaveSlide(evt));
+
             navigation.add(next);
             navigation.add(previous);
             file.add(load);
+            file.add(save);
 
             // the terminates the order
             mb.add(file);
@@ -148,6 +152,12 @@ public class Projector {
             LoadFile();
             repaint();
         }
+
+        private void actionSaveSlide(ActionEvent evt) {
+            SavedFile();
+            repaint();
+        }
+
     }
 
     private void LoadFile() {
@@ -156,13 +166,13 @@ public class Projector {
         jFileChooser.setAcceptAllFileFilterUsed(false);
         fileNameExtensionFilter = new FileNameExtensionFilter("xml", "Html", "txt");
         jFileChooser.addChoosableFileFilter(fileNameExtensionFilter);
-
         jFileChooser.setMultiSelectionEnabled(true);
         jFileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        listSlides.clear();
 
         int returnValue = jFileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
-            listSlides.clear();
+
             File[] files = jFileChooser.getSelectedFiles();
             FileProcessor dataProcessor
                     = getInstanceFileProcessor(getFileExtension(jFileChooser.getSelectedFile()));
@@ -179,6 +189,10 @@ public class Projector {
                 }
             }
         }
+    }
+
+    private void SavedFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private FileProcessor getInstanceFileProcessor(String extension) {
