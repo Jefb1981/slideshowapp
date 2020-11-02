@@ -192,12 +192,35 @@ public class Projector {
     }
 
     private void SavedFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jFileChooser = new JFileChooser();
+        jFileChooser.setDialogTitle("Save to Text, Html or Xml file");
+        
+        int retval = jFileChooser.showSaveDialog(null);
+        if (retval == JFileChooser.APPROVE_OPTION) {
+
+            File file = jFileChooser.getSelectedFile();
+            FileProcessor dataProcessor = getInstanceFileProcessor(getFileExtension(jFileChooser.getSelectedFile()));
+
+            if (dataProcessor != null) {
+                // we have to have something showing on the screen before saving it!
+                if (!listSlides.isEmpty()) {
+                    dataProcessor.saveFile(file.getAbsolutePath(), listSlides);
+                } else {
+                    // todo: show it as a pop up?
+                    System.out.println("Nothing to save");
+                }
+            } else {
+                System.out.println("No txt or html file choosen");
+                System.out.println("File Name: " + file.getName());
+            }
+
+        }
     }
 
     private FileProcessor getInstanceFileProcessor(String extension) {
         switch (extension) {
             case "txt":
+                System.out.println("TxtFileProcessor");
                 return new TxtFileProcessor();
             case "html":
                 return new HtmlFileProcessor();

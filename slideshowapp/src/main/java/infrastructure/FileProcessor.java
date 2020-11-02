@@ -7,5 +7,5 @@ public abstract class FileProcessor {
 
     abstract public ArrayList<SlideComponentInterface> loadFile(String fileLocation);
 
-    abstract public void saveFile(String fileName);
+    abstract public void saveFile(String fileName, ArrayList<SlideComponentInterface> Slides);
 }

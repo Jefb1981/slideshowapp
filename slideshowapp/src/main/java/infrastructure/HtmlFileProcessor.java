@@ -22,8 +22,8 @@ public class HtmlFileProcessor extends FileProcessor {
     }
 
     @Override
-    public void saveFile(String fileName) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void saveFile(String fileName, ArrayList<SlideComponentInterface> slides) {        
+        System.out.println("filename :" + fileName);
     }
 
     private ArrayList<SlideComponentInterface> loadHtmlFile(String filePath) {

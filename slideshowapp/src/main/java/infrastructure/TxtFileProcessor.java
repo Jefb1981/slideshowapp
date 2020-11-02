@@ -23,8 +23,9 @@ public class TxtFileProcessor extends FileProcessor {
     }
 
     @Override
-    public void saveFile(String fileName) {
-        // TODO Auto-generated method stub
+    public void saveFile(String fileName, ArrayList<SlideComponentInterface> slides) {
+        System.out.println("filename :" + fileName);
+        System.out.println("slides size :" + slides.size());
     }
 
     private ArrayList<SlideComponentInterface> loadTxtFile(String filePath) {
