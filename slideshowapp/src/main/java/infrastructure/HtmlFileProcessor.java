@@ -1,6 +1,6 @@
 package infrastructure;
 
-import domaincore.Level; 
+import domaincore.Level;
 import domainservices.Figure;
 import domainservices.SlideComponentInterface;
 import domainservices.SlideComposite;
@@ -22,7 +22,7 @@ public class HtmlFileProcessor extends FileProcessor {
     }
 
     @Override
-    public void saveFile(String fileName, ArrayList<SlideComponentInterface> slides) {        
+    public void saveFile(String fileName, ArrayList<SlideComponentInterface> slides) {
         System.out.println("filename :" + fileName);
     }
 
@@ -139,5 +139,10 @@ public class HtmlFileProcessor extends FileProcessor {
 
         slidesArray.add(slideComposite);
         return slidesArray;
+    }
+
+    @Override
+    public String loadFileTest(String fileLocation) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

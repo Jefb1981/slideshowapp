@@ -59,4 +59,9 @@ public class TxtFileProcessor extends FileProcessor {
         //SlideHelpers.PrintMappedContentSlides(slidesComposite);
         return slidesArray;
     }
+
+    @Override
+    public String loadFileTest(String fileLocation) {
+        return SlideProcessor.readLineByLineFileContent(fileLocation);
+    }
 }
