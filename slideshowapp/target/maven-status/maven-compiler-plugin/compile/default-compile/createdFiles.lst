@@ -1,6 +1,7 @@
 infrastructure\XmlFileProcessor.class
 infrastructure\SlideProcessor.class
 infrastructure\TxtFileProcessor.class
+domaincore\FileWrapper.class
 domainservices\SlideComposite.class
 infrastructure\HtmlFileProcessor.class
 domainservices\SlideComponentInterface.class
@@ -12,6 +13,9 @@ userinterface\Projector.class
 domainservices\Subtitle.class
 domainservices\Text.class
 userinterface\Projector$EditorCanvas.class
+domainservices\FileOutputStreamWrapperInterface.class
 domaincore\SlideHelpers.class
 domainservices\SlideComponent.class
+domainservices\FileWrapperInterface.class
 domainservices\Title.class
+domaincore\FileOutputStreamWrapper.class

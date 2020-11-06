@@ -35,7 +35,7 @@ public class Projector {
     public void startShow() {
         slideComposite.clear();
         // new title object has to be created by a factory
-        SlideComponentInterface defaultSlide = (SlideComponentInterface) new Title(Color.BLUE, "Welkom!", new Level(10, 20));
+        SlideComponentInterface defaultSlide = (SlideComponentInterface) new Title(Color.BLUE, "Welkom!", new Level(0,10, 20));
         loadShapes(defaultSlide);
         canvas.refresh();
     }

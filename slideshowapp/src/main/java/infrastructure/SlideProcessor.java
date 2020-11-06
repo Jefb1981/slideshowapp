@@ -1,6 +1,7 @@
 package infrastructure;
 
 import domaincore.Level;
+import domaincore.SlideHelpers;
 import domainservices.Figure;
 import domainservices.SlideComponentInterface;
 import domainservices.Subtitle;
@@ -17,6 +18,7 @@ public class SlideProcessor {
 
     private static final String titleTag = "title";
     private static final String subTitleTag = "subtitle";
+    private static final String levelTag = "level";
     private static final String level1Tag = "level1";
     private static final String level2Tag = "level2";
     private static final String level3Tag = "level3";
@@ -37,42 +39,67 @@ public class SlideProcessor {
 
     public SlideComponentInterface createSlideElements(String data, Level elementLevel) {
 
-        if (CheckTagTextLine(data, CreateTag(titleTag)) == true) {
-            return new Title(Color.BLUE, data.replace(CreateTag(titleTag), emptyString), elementLevel);
+        if (SlideHelpers.isTagInString(data, SlideHelpers.CreateTag(titleTag))) {
+            return new Title(Color.BLUE, data.replace(SlideHelpers.CreateTag(titleTag), emptyString), elementLevel);
         }
 
-        if (CheckTagTextLine(data, CreateTag(subTitleTag)) == true) {
-            return new Subtitle(Color.BLUE, data.replace(CreateTag(subTitleTag), emptyString), elementLevel);
+        if (SlideHelpers.isTagInString(data, SlideHelpers.CreateTag(subTitleTag))) {
+            return new Subtitle(Color.BLUE, data.replace(SlideHelpers.CreateTag(subTitleTag), emptyString), elementLevel);
         }
 
-        if (CheckTagTextLine(data, CreateTag(level1Tag)) == true) {
-            return new Text(Color.BLUE, data.replace(CreateTag(level1Tag), emptyString), elementLevel);
+        if (SlideHelpers.isTagInString(data, SlideHelpers.CreateTag(level1Tag))) {
+            Level level = new Level(1, elementLevel.getX(), elementLevel.getY());
+
+            return new Text(Color.BLUE, data.replace(SlideHelpers.CreateTag(level1Tag), emptyString), level);
         }
 
-        if (CheckTagTextLine(data, CreateTag(level2Tag)) == true) {
-            return new Text(Color.BLUE, data.replace(CreateTag(level2Tag), emptyString), elementLevel);
+        if (SlideHelpers.isTagInString(data, SlideHelpers.CreateTag(level2Tag))) {
+            Level level = new Level(2, elementLevel.getX(), elementLevel.getY());
+            return new Text(Color.BLUE, data.replace(SlideHelpers.CreateTag(level2Tag), emptyString), level);
         }
 
-        if (CheckTagTextLine(data, CreateTag(level3Tag)) == true) {
-            return new Text(Color.BLUE, data.replace(CreateTag(level3Tag), emptyString), elementLevel);
+        if (SlideHelpers.isTagInString(data, SlideHelpers.CreateTag(level3Tag))) {
+            Level level = new Level(3, elementLevel.getX(), elementLevel.getY());
+            return new Text(Color.BLUE, data.replace(SlideHelpers.CreateTag(level3Tag), emptyString), level);
         }
 
-        if (CheckTagTextLine(data, CreateTag(level4Tag)) == true) {
-            return new Text(Color.BLUE, data.replace(CreateTag(level4Tag), emptyString), elementLevel);
+        if (SlideHelpers.isTagInString(data, SlideHelpers.CreateTag(level4Tag))) {
+            Level level = new Level(4, elementLevel.getX(), elementLevel.getY());
+            return new Text(Color.BLUE, data.replace(SlideHelpers.CreateTag(level4Tag), emptyString), level);
         }
 
-        if (CheckTagTextLine(data, CreateTag(figureTag)) == true) {
-            return new Figure(Color.BLUE, data.replace(CreateTag(figureTag), emptyString), elementLevel);
+        if (SlideHelpers.isTagInString(data, SlideHelpers.CreateTag(figureTag))) {
+            return new Figure(Color.BLUE, data.replace(SlideHelpers.CreateTag(figureTag), emptyString), elementLevel);
         }
 
         return new Title(Color.RED, "No Elements", elementLevel);
     }
 
-    private String CreateTag(String tag) {
-        return "<" + tag + ">:";
-    }
+    public byte[] GetDataFromSlideElement(SlideComponentInterface slideElement) {
+        String stringContent = "";
+        if (slideElement instanceof Title) {
+            Title title = (Title) slideElement;
+            stringContent = SlideHelpers.CreateTextLine(titleTag, title.getTitle());
+        }
 
-    private boolean CheckTagTextLine(String data, String tagToFind) {
-        return data.contains(tagToFind);
+        if (slideElement instanceof Subtitle) {
+            Subtitle subtitle = (Subtitle) slideElement;
+            stringContent = SlideHelpers.CreateTextLine(subTitleTag, subtitle.getSubTitle());
+        }
+
+        if (slideElement instanceof Text) {
+            Text text = (Text) slideElement;
+            String newlevelTag = null;
+            if (text.level.getLevel() != 0) {
+                newlevelTag = levelTag.concat(Integer.toString(text.level.getLevel()));
+            }
+            stringContent = SlideHelpers.CreateTextLine(newlevelTag != null ? newlevelTag : levelTag, text.getText());
+        }
+
+        if (slideElement instanceof Figure) {
+            Figure figure = (Figure) slideElement;
+            stringContent = SlideHelpers.CreateTextLine(figureTag, figure.getUrl());
+        }
+        return stringContent.getBytes();
     }
 }

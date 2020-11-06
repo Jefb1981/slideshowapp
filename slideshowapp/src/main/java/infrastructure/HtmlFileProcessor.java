@@ -97,44 +97,44 @@ public class HtmlFileProcessor extends FileProcessor {
         int yasLevel = 0;
 
         if (!title.isEmpty()) {
-            slideComposite.add(new Title(Color.BLUE, title, new Level(xasLevel, yasLevel += 20)));
+            slideComposite.add(new Title(Color.BLUE, title, new Level(0, xasLevel, yasLevel += 20)));
         }
 
         if (!subtitle.isEmpty()) {
-            slideComposite.add(new Subtitle(Color.BLUE, subtitle, new Level(xasLevel, yasLevel += 20)));
+            slideComposite.add(new Subtitle(Color.BLUE, subtitle, new Level(0, xasLevel, yasLevel += 20)));
         }
         if (level1 != null && level1.length > 0) {
             for (String string : level1) {
-                slideComposite.add(new Text(Color.BLUE, string, new Level(xasLevel, yasLevel += 20)));
+                slideComposite.add(new Text(Color.BLUE, string, new Level(1, xasLevel, yasLevel += 20)));
             }
         }
 
         if (level2 != null && level2.length > 0) {
             for (String string : level2) {
-                slideComposite.add(new Text(Color.BLUE, string, new Level(xasLevel, yasLevel += 20)));
+                slideComposite.add(new Text(Color.BLUE, string, new Level(2, xasLevel, yasLevel += 20)));
             }
         }
 
         if (level3 != null && level3.length > 0) {
             for (String string : level3) {
-                slideComposite.add(new Text(Color.BLUE, string, new Level(xasLevel, yasLevel += 20)));
+                slideComposite.add(new Text(Color.BLUE, string, new Level(3,xasLevel, yasLevel += 20)));
             }
         }
 
         if (level4 != null && level4.length > 0) {
             for (String string : level4) {
-                slideComposite.add(new Text(Color.BLUE, string, new Level(xasLevel, yasLevel += 20)));
+                slideComposite.add(new Text(Color.BLUE, string, new Level(4,xasLevel, yasLevel += 20)));
             }
         }
 
         if (images != null && !images.isEmpty()) {
             for (Element string : images) {
-                slideComposite.add(new Figure(Color.BLUE, string.absUrl("src"), new Level(xasLevel, yasLevel += 20)));
+                slideComposite.add(new Figure(Color.BLUE, string.absUrl("src"), new Level(0, xasLevel, yasLevel += 20)));
             }
         }
 
         if (slideComposite == null || slideComposite.getSize() == 0) {
-            slideComposite.add(new Text(Color.RED, "The loaded document is empty or has not correct elements", new Level(10, 20)));
+            slideComposite.add(new Text(Color.RED, "The loaded document is empty or has not correct elements", new Level(1, 10, 20)));
         }
 
         slidesArray.add(slideComposite);

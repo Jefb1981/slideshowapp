@@ -25,6 +25,10 @@ public class Figure extends SlideComponent {
         return level.getY();
     }
 
+    public String getUrl() {
+        return url;
+    }
+
     @Override
     public void paint(Graphics graphics) {
         super.paint(graphics);
@@ -46,7 +50,7 @@ public class Figure extends SlideComponent {
 
     @Override
     public int getSize() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }
