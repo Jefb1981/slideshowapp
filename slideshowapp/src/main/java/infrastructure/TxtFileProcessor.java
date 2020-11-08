@@ -52,7 +52,8 @@ public class TxtFileProcessor extends FileProcessor {
                 SlideComposite slideComposite = (SlideComposite) obj;
                 List<SlideComponentInterface> slideElements = slideComposite.getAllSlideElements();
                 for (int i = 0; i < slideElements.size(); i++) {
-                    fileOutputStream.WriteContent(outputStream, slideProcessor.GetDataFromSlideElement(slideElements.get(i)));
+                    byte[] slideElementString = slideProcessor.GetTxtDataFromSlideElement(slideElements.get(i));
+                    fileOutputStream.WriteContent(outputStream, slideElementString);
                 }
             }
         }

@@ -1,20 +1,35 @@
 package infrastructure;
 
-import domaincore.Level;
-import domainservices.Figure;
+import domaincore.FileOutputStreamWrapper;
+import domaincore.FileWrapper;
+import domaincore.HtmlElement;
+import domaincore.HtmlProcessorHelpers;
+import domaincore.SlideElements;
+import domainservices.FileOutputStreamWrapperInterface;
+import domainservices.FileWrapperInterface;
+import domainservices.HtmlProcessorHelpersInterface;
 import domainservices.SlideComponentInterface;
 import domainservices.SlideComposite;
-import domainservices.Subtitle;
-import domainservices.Text;
-import domainservices.Title;
-import java.awt.Color;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 public class HtmlFileProcessor extends FileProcessor {
+
+    private final HtmlProcessorHelpersInterface htmlProcessorHelper;
+    private final SlideProcessor slideProcessor;
+    private final FileWrapperInterface fileWrapper;
+    private final FileOutputStreamWrapperInterface fileOutputStream;
+
+    public HtmlFileProcessor() {
+        htmlProcessorHelper = new HtmlProcessorHelpers();
+        slideProcessor = new SlideProcessor();
+        fileWrapper = new FileWrapper();
+        fileOutputStream = new FileOutputStreamWrapper();
+    }
 
     @Override
     public ArrayList<SlideComponentInterface> loadFile(String filePath) {
@@ -22,8 +37,40 @@ public class HtmlFileProcessor extends FileProcessor {
     }
 
     @Override
-    public void saveFile(String fileName, ArrayList<SlideComponentInterface> slides) {
-        System.out.println("filename :" + fileName);
+    public void saveFile(String filePath, ArrayList<SlideComponentInterface> slides) {
+
+        if (slides.size() > 0) {
+            saveHtmlFile(slides, filePath);
+        }
+    }
+
+    private void saveHtmlFile(ArrayList<SlideComponentInterface> slides, String filePath) {
+        int slideCounter = 1;
+        String filename = filePath.substring(0, filePath.lastIndexOf("."));
+        for (SlideComponentInterface obj : slides) {
+            if (slideCounter > 1) {
+                filename = filename.concat(Integer.toString(slideCounter));
+            }
+            File htmlFile = fileWrapper.CreateTextFile(filename + ".html");
+            FileOutputStream outputStream = fileOutputStream.CreateFileStream(htmlFile);
+            
+            if (obj instanceof SlideComposite) { 
+                Document doc = Jsoup.parse("<html></html>");
+                SlideComposite slideComposite = (SlideComposite) obj;
+                List<SlideComponentInterface> slideElements = slideComposite.getAllSlideElements();
+                for (int i = 0; i < slideElements.size(); i++) {
+                    String strings = slideProcessor.GetHtmlDataFromSlideElement(slideElements.get(i));
+                    if (!strings.isEmpty()) {
+                        doc.body().append(strings);
+                    }
+                } 
+                fileOutputStream.WriteContent(outputStream, doc.toString().getBytes());
+
+            }
+            slideCounter++;
+            fileOutputStream.CloseOutputStream(outputStream);
+        }
+
     }
 
     private ArrayList<SlideComponentInterface> loadHtmlFile(String filePath) {
@@ -32,115 +79,41 @@ public class HtmlFileProcessor extends FileProcessor {
         String regularExpression = "(?i)<br[^>]*>";
         String htmlContent = SlideProcessor.readLineByLineFileContent(filePath);
         Document htmlDocument = Jsoup.parse(htmlContent.replaceAll(regularExpression, replacement), "UTF-8");
-        String title = "";
-        String subtitle = "";
-        String[] level1 = null;
-        String[] level2 = null;
-        String[] level3 = null;
-        String[] level4 = null;
-        Elements images = null;
 
-        if (checkElementsById(htmlDocument, "title")) {
-            title = getElementById(htmlDocument, "title");
+        HtmlElement htmlElement = new HtmlElement();
+
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.TITLE.getElement())) {
+            htmlElement.setTitle(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.TITLE.getElement()));
         }
 
-        if (checkElementsById(htmlDocument, "subtitle")) {
-            subtitle = getElementById(htmlDocument, "subtitle");
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.SUBTITLE.getElement())) {
+            htmlElement.setSubtitle(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.SUBTITLE.getElement()));
         }
 
-        if (checkElementsById(htmlDocument, "level1")) {
-            level1 = getElementById(htmlDocument, "level1").split(delimiters);
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL1.getElement())) {
+            htmlElement.setLevel1(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL1.getElement()).split(delimiters));
         }
 
-        if (checkElementsById(htmlDocument, "level2")) {
-            level2 = getElementById(htmlDocument, "level2").split(delimiters);
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL2.getElement())) {
+            htmlElement.setLevel2(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL2.getElement()).split(delimiters));
         }
 
-        if (checkElementsById(htmlDocument, "level3")) {
-            level3 = getElementById(htmlDocument, "level3").split(delimiters);
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL3.getElement())) {
+            htmlElement.setLevel3(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL3.getElement()).split(delimiters));
         }
 
-        if (checkElementsById(htmlDocument, "level4")) {
-            level4 = getElementById(htmlDocument, "level4").split(delimiters);
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL4.getElement())) {
+            htmlElement.setLevel4(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL4.getElement()).split(delimiters));
         }
 
         if (!htmlDocument.body().getElementsByTag("img").isEmpty()) {
-            images = htmlDocument.body().getElementsByTag("img");
+            htmlElement.setImages(htmlDocument.body().getElementsByTag("img"));
         }
 
-        return CreateSlideArray(title, subtitle, level1, level2, level3, level4, images);
+        return slideProcessor.CreateSlideCompositeArray(htmlElement);
     }
 
-    private boolean checkElementsById(Document htmlDocument, String tag) {
-        // the Jsoup checks for empty or hastext are always returning false.
-        // the jsoup library is not working correctly
-        try {
-            // if the tag is not found in th html body an exception will be raised and false will be returned
-            String element = htmlDocument.body().getElementById(tag).text();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    private String getElementById(Document htmlDocument, String tag) {
-        return htmlDocument.body().getElementById(tag).text();
-    }
-
-    private ArrayList<SlideComponentInterface> CreateSlideArray(String title,
-            String subtitle, String[] level1, String[] level2,
-            String[] level3, String[] level4, Elements images) {
-
-        ArrayList<SlideComponentInterface> slidesArray = new ArrayList<>();
-        SlideComponentInterface slideComposite = new SlideComposite();
-        int xasLevel = 10;
-        int yasLevel = 0;
-
-        if (!title.isEmpty()) {
-            slideComposite.add(new Title(Color.BLUE, title, new Level(0, xasLevel, yasLevel += 20)));
-        }
-
-        if (!subtitle.isEmpty()) {
-            slideComposite.add(new Subtitle(Color.BLUE, subtitle, new Level(0, xasLevel, yasLevel += 20)));
-        }
-        if (level1 != null && level1.length > 0) {
-            for (String string : level1) {
-                slideComposite.add(new Text(Color.BLUE, string, new Level(1, xasLevel, yasLevel += 20)));
-            }
-        }
-
-        if (level2 != null && level2.length > 0) {
-            for (String string : level2) {
-                slideComposite.add(new Text(Color.BLUE, string, new Level(2, xasLevel, yasLevel += 20)));
-            }
-        }
-
-        if (level3 != null && level3.length > 0) {
-            for (String string : level3) {
-                slideComposite.add(new Text(Color.BLUE, string, new Level(3,xasLevel, yasLevel += 20)));
-            }
-        }
-
-        if (level4 != null && level4.length > 0) {
-            for (String string : level4) {
-                slideComposite.add(new Text(Color.BLUE, string, new Level(4,xasLevel, yasLevel += 20)));
-            }
-        }
-
-        if (images != null && !images.isEmpty()) {
-            for (Element string : images) {
-                slideComposite.add(new Figure(Color.BLUE, string.absUrl("src"), new Level(0, xasLevel, yasLevel += 20)));
-            }
-        }
-
-        if (slideComposite == null || slideComposite.getSize() == 0) {
-            slideComposite.add(new Text(Color.RED, "The loaded document is empty or has not correct elements", new Level(1, 10, 20)));
-        }
-
-        slidesArray.add(slideComposite);
-        return slidesArray;
-    }
-
+    // Todo remove method for test purpose
     @Override
     public String loadFileTest(String fileLocation) {
         throw new UnsupportedOperationException("Not supported yet.");
