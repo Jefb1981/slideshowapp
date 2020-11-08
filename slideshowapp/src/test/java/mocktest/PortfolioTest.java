@@ -15,9 +15,9 @@ import static org.mockito.Mockito.when;
  *
  * @author Phillip
  */
-public class PortfolioTesterTest {
+public class PortfolioTest {
 
-    public PortfolioTesterTest() {
+    public PortfolioTest() {
     }
 
     /**
@@ -33,7 +33,7 @@ public class PortfolioTesterTest {
         };
         stockService = mock(StockService.class);
         List<Stock> stocks = new ArrayList<>();
-        Stock googleStock = new Stock("1", "Google", 10);
+        Stock googleStock = new Stock("1", "Google", 50);
         Stock microsoftStock = new Stock("2", "Microsoft", 100);
 
         stocks.add(googleStock);
@@ -43,7 +43,7 @@ public class PortfolioTesterTest {
         portfolio.setStocks(stocks);
 
         //mock the behavior of stock service to return the value of various stocks
-        when(stockService.getPrice(googleStock)).thenReturn(150.00);
+        when(stockService.getPrice(googleStock)).thenReturn(100.0);
         when(stockService.getPrice(microsoftStock)).thenReturn(1000.00);
 
     }
