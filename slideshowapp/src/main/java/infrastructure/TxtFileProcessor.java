@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TxtFileProcessor extends FileProcessor {
 
-    private final SlideProcessor slideProcessor;
+    private SlideProcessorInterface slideProcessor;
     private final ArrayList<SlideComponentInterface> slidesArray;
     private SlideComponentInterface slideComposite;
     private final FileWrapperInterface fileWrapper;
@@ -26,6 +26,19 @@ public class TxtFileProcessor extends FileProcessor {
         slideComposite = new SlideComposite();
         fileWrapper = new FileWrapper();
         fileOutputStream = new FileOutputStreamWrapper();
+    }
+
+    // overloaded constructor 
+    public TxtFileProcessor(SlideProcessorInterface slideProcessor,
+            SlideComponentInterface slideComponentInterface,
+            FileWrapperInterface fileWrapperInterface,
+            FileOutputStreamWrapperInterface fileOutputStreamWrapperInterface
+    ) {
+        this.slideProcessor = slideProcessor;
+        this.slidesArray = new ArrayList<>();
+        this.slideComposite = slideComponentInterface;
+        this.fileWrapper = fileWrapperInterface;
+        this.fileOutputStream = fileOutputStreamWrapperInterface;
     }
 
     @Override
@@ -61,7 +74,7 @@ public class TxtFileProcessor extends FileProcessor {
     }
 
     private ArrayList<SlideComponentInterface> loadTxtFile(String filePath) {
-        String txtContent = SlideProcessor.readLineByLineFileContent(filePath);
+        String txtContent = slideProcessor.readLineByLineFileContent(filePath);
         String[] arrOfStr = txtContent.split("\\r?\\n");
         int xasLevel = 10;
         int yasLevel = 0;
@@ -88,12 +101,7 @@ public class TxtFileProcessor extends FileProcessor {
             // Add slide to the list
             slidesArray.add(slideComposite);
         }
-        
-        return slidesArray;
-    }
 
-    @Override
-    public String loadFileTest(String fileLocation) {
-        return SlideProcessor.readLineByLineFileContent(fileLocation);
+        return slidesArray;
     }
 }

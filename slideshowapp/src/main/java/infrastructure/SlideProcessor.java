@@ -19,9 +19,9 @@ import java.util.ArrayList;
 import java.util.stream.Stream;
 import org.jsoup.nodes.Element;
 
-public class SlideProcessor {
+public class SlideProcessor implements SlideProcessorInterface {
 
-    public static String readLineByLineFileContent(String filePath) {
+    public String readLineByLineFileContent(String filePath) {
         StringBuilder contentBuilder = new StringBuilder();
         try ( Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
             stream.forEach(s -> contentBuilder.append(s).append("\n"));
@@ -116,7 +116,7 @@ public class SlideProcessor {
         if (slideElement instanceof Text) {
             Text text = (Text) slideElement;
             String newlevelTag = null;
-            
+
             if (text.level.getLevel() != 0) {
                 newlevelTag = SlideElements.LEVEL.getElement().concat(Integer.toString(text.level.getLevel()));
             }

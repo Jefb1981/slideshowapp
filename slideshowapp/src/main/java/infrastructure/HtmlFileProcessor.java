@@ -20,7 +20,7 @@ import org.jsoup.nodes.Document;
 public class HtmlFileProcessor extends FileProcessor {
 
     private final HtmlProcessorHelpersInterface htmlProcessorHelper;
-    private final SlideProcessor slideProcessor;
+    private final SlideProcessorInterface slideProcessor;
     private final FileWrapperInterface fileWrapper;
     private final FileOutputStreamWrapperInterface fileOutputStream;
 
@@ -65,7 +65,6 @@ public class HtmlFileProcessor extends FileProcessor {
                     }
                 } 
                 fileOutputStream.WriteContent(outputStream, doc.toString().getBytes());
-
             }
             slideCounter++;
             fileOutputStream.CloseOutputStream(outputStream);
@@ -77,7 +76,7 @@ public class HtmlFileProcessor extends FileProcessor {
         String delimiters = ";;\\s*|\\;; \\s*";
         String replacement = ";;";
         String regularExpression = "(?i)<br[^>]*>";
-        String htmlContent = SlideProcessor.readLineByLineFileContent(filePath);
+        String htmlContent = slideProcessor.readLineByLineFileContent(filePath);
         Document htmlDocument = Jsoup.parse(htmlContent.replaceAll(regularExpression, replacement), "UTF-8");
 
         HtmlElement htmlElement = new HtmlElement();
@@ -111,11 +110,5 @@ public class HtmlFileProcessor extends FileProcessor {
         }
 
         return slideProcessor.CreateSlideCompositeArray(htmlElement);
-    }
-
-    // Todo remove method for test purpose
-    @Override
-    public String loadFileTest(String fileLocation) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    } 
 }
