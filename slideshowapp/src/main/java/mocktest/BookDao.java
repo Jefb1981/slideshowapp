@@ -21,7 +21,7 @@ public class BookDao implements BookDaoInterface {
         bookList.add(new Book("George Orwell", "1984"));
         bookList.add(new Book("George Orwell", "2020"));
         bookList.add(new Book("Stephen Hawking", "1984"));
-        return bookList;
+        return null;
     }
 
 }

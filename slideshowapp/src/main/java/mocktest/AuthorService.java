@@ -38,4 +38,8 @@ public class AuthorService implements AuthorServiceInterface {
         this.bookService = bookService;
     }
 
+    @Override
+    public void setBookValidatorService(BookServiceInterface bookService) {
+    }
+
 }
