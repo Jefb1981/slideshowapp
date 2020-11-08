@@ -1,7 +1,6 @@
 package domainservices;
 
 import domaincore.Level;
-import domainservices.SlideComponentInterface;
 import java.awt.*;
 
 abstract class SlideComponent implements SlideComponentInterface {
