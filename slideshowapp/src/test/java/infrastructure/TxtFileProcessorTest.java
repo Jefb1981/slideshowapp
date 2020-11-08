@@ -21,6 +21,8 @@ import mocktest.Stock;
 import mocktest.StockService;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.mockito.Matchers;
+import static org.mockito.Matchers.anyString;
 import org.mockito.Mock;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -69,19 +71,19 @@ public class TxtFileProcessorTest {
                 + "<level4>: This is a Java Application\n"
                 + "<figure>: http://www.slide3.nl\n"
                 + ""; 
-        
-        // mocking interfaces to be added through the constructor
+         
+        // mocking interfaces to be added through the constructor, thus by injection
         slideProcessorMock = mock(SlideProcessorInterface.class);
         slideComponentInterfaceMock = mock(SlideComponentInterface.class);
         fileWrapperInterfaceMock = mock(FileWrapperInterface.class);
         fileOutputStreamWrapperInterfaceMock = mock(FileOutputStreamWrapperInterface.class); 
         
        // returning values of methods with our own responses
-        when(slideProcessorMock.readLineByLineFileContent("")).thenReturn(expected);
-         
-        // TODO expected to return always this object when method is called, seems not to work??
-        SlideComponentInterface returnObj = new Title(Color.yellow, "test", new Level(1, 10, 20));        
-        when(slideProcessorMock.createSlideElements("", new Level(0, 0, 0))).thenReturn(returnObj);
+        when(slideProcessorMock.readLineByLineFileContent(Matchers.anyString())).thenReturn(expected);         
+        // TODO expected to return always this object when method is called, seems not to work??   
+        Title title = new Title(Color.yellow, "test", new Level(1, 10, 20));
+        when(slideProcessorMock.createSlideElements(Matchers.anyString(), Matchers.anyObject())).thenReturn(title);
+ 
         
         TxtFileProcessor txtFileProcessor = new TxtFileProcessor(slideProcessorMock,
                 slideComponentInterfaceMock,

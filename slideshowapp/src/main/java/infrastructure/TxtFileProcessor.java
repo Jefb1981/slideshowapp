@@ -92,7 +92,9 @@ public class TxtFileProcessor extends FileProcessor {
             } else {
                 //Add elememt to slideComposite
                 if (!string.isEmpty()) {
-                    slideComposite.add(slideProcessor.createSlideElements(string, new Level(0, xasLevel, yasLevel += 20)));
+                    
+                    SlideComponentInterface element = slideProcessor.createSlideElements(string, new Level(0, xasLevel, yasLevel += 20));
+                    slideComposite.add(element);
                 }
             }
         }
