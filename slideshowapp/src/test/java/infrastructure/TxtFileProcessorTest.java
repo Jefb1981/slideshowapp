@@ -5,24 +5,16 @@
  */
 package infrastructure;
 
-import domaincore.FileOutputStreamWrapper;
-import domaincore.FileWrapper;
 import domaincore.Level;
 import domainservices.FileOutputStreamWrapperInterface;
 import domainservices.FileWrapperInterface;
 import domainservices.SlideComponentInterface;
-import domainservices.SlideComposite;
 import domainservices.Title;
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.*;
-import mocktest.Portfolio;
-import mocktest.Stock;
-import mocktest.StockService;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mockito.Matchers;
-import static org.mockito.Matchers.anyString;
 import org.mockito.Mock;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -83,20 +75,21 @@ public class TxtFileProcessorTest {
        // als het maar een string is
         when(slideProcessorMock.readLineByLineFileContent(Matchers.anyString())).thenReturn(expected);         
         // the object that with every call will be returned
-        Title title = new Title(Color.yellow, "test", new Level(1, 10, 20));
+        Title title = new Title(Color.yellow, "test strinig", new Level(1, 10, 20));
         when(slideProcessorMock.createSlideElements(Matchers.anyString(), Matchers.anyObject())).thenReturn(title);
-        // maak instantie van het object aan.
+        // maak instantie van het object aan om de methode aan te roepen
         TxtFileProcessor txtFileProcessor = new TxtFileProcessor(slideProcessorMock,
                 slideComponentInterfaceMock,
                 fileWrapperInterfaceMock,
                 fileOutputStreamWrapperInterfaceMock);
 
         // Act
-        ArrayList<SlideComponentInterface> result = txtFileProcessor.loadFile("");
+        ArrayList<SlideComponentInterface> result = txtFileProcessor.loadFile("dummy string");
         
         // Assert
         // Controleren of the method de gewenste waarden teruggeeft
         assertNotNull(result);
         assertEquals(3, result.size());
+        // mogelijk controleren van de inhoud waarden van de array
     }
 }
