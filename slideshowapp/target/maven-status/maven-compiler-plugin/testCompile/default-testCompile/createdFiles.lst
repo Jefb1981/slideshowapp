@@ -1,6 +1,3 @@
 userinterface\ProjectorTest.class
 infrastructure\HtmlFileProcessorTest.class
-mocktest\MyListTest.class
 infrastructure\TxtFileProcessorTest.class
-mocktest\AuthorServiceTest.class
-mocktest\PortfolioTest.class

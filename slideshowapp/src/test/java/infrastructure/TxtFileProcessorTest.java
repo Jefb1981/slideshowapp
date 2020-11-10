@@ -15,7 +15,7 @@ import domainservices.SlideComposite;
 import domainservices.Title;
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import mocktest.Portfolio;
 import mocktest.Stock;
 import mocktest.StockService;
@@ -79,12 +79,13 @@ public class TxtFileProcessorTest {
         fileOutputStreamWrapperInterfaceMock = mock(FileOutputStreamWrapperInterface.class); 
         
        // returning values of methods with our own responses
+       // Matcher any betekent hier dat het niet uitmaakt met welke string dit method wordt aangeroepen.
+       // als het maar een string is
         when(slideProcessorMock.readLineByLineFileContent(Matchers.anyString())).thenReturn(expected);         
-        // TODO expected to return always this object when method is called, seems not to work??   
+        // the object that with every call will be returned
         Title title = new Title(Color.yellow, "test", new Level(1, 10, 20));
         when(slideProcessorMock.createSlideElements(Matchers.anyString(), Matchers.anyObject())).thenReturn(title);
- 
-        
+        // maak instantie van het object aan.
         TxtFileProcessor txtFileProcessor = new TxtFileProcessor(slideProcessorMock,
                 slideComponentInterfaceMock,
                 fileWrapperInterfaceMock,
@@ -92,8 +93,9 @@ public class TxtFileProcessorTest {
 
         // Act
         ArrayList<SlideComponentInterface> result = txtFileProcessor.loadFile("");
-
+        
         // Assert
+        // Controleren of the method de gewenste waarden teruggeeft
         assertNotNull(result);
         assertEquals(3, result.size());
     }
