@@ -42,7 +42,7 @@ public class TxtFileProcessorTest {
     private FileWrapperInterface fileWrapperInterfaceMock;
 
     @Test
-    public void WhenMethodLoadFileIsCalledWithASlideElement_ThenArrayWithThreeElementsIsReturned() {
+    public void WhenMethodLoadFileIsCalledWithAnSlideElement_ThenAnArrayWithThreeElementsIsReturned() {
         // Arrange
         String expected = "<slide>:\n"
                 + "<title>: Presentatie\n"
@@ -99,7 +99,7 @@ public class TxtFileProcessorTest {
     }
 
     @Test
-    public void WhenMethodSaveFileIScalled_ThenFileAndOutputFileMethodsAreHitMultipleTimes() {
+    public void WhenMethodSaveFileIscalled_ThenFileAndOutputFileMethodsAreHitMultipleTimes() {
         // Arrange
         TxtFileProcessor txtFileProcessor = new TxtFileProcessor(slideProcessorMock,
                 slideComponentInterfaceMock,
