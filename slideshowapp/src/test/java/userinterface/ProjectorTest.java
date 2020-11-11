@@ -10,10 +10,6 @@ import java.awt.Graphics;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Phillip
- */
 public class ProjectorTest {
 
     public ProjectorTest() {

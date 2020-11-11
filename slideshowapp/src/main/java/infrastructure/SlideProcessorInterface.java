@@ -5,6 +5,7 @@ import domaincore.HtmlElement;
 import domaincore.Level;
 import domainservices.SlideComponentInterface;
 import java.util.ArrayList; 
+
 interface SlideProcessorInterface {
 
     String readLineByLineFileContent(String filePath);
