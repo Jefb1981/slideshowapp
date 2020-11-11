@@ -31,6 +31,17 @@ public class HtmlFileProcessor extends FileProcessor {
         fileOutputStream = new FileOutputStreamWrapper();
     }
 
+    // overloaded constructor
+    public HtmlFileProcessor(HtmlProcessorHelpersInterface htmlProcessorHelper,
+            SlideProcessorInterface slideProcessor,
+            FileWrapperInterface fileWrapper,
+            FileOutputStreamWrapperInterface fileOutputStream) {
+        this.htmlProcessorHelper = htmlProcessorHelper;
+        this.slideProcessor = slideProcessor;
+        this.fileWrapper = fileWrapper;
+        this.fileOutputStream = fileOutputStream;
+    }
+
     @Override
     public ArrayList<SlideComponentInterface> loadFile(String filePath) {
         return loadHtmlFile(filePath);
@@ -38,7 +49,6 @@ public class HtmlFileProcessor extends FileProcessor {
 
     @Override
     public void saveFile(String filePath, ArrayList<SlideComponentInterface> slides) {
-
         if (slides.size() > 0) {
             saveHtmlFile(slides, filePath);
         }
@@ -53,8 +63,8 @@ public class HtmlFileProcessor extends FileProcessor {
             }
             File htmlFile = fileWrapper.CreateTextFile(filename + ".html");
             FileOutputStream outputStream = fileOutputStream.CreateFileStream(htmlFile);
-            
-            if (obj instanceof SlideComposite) { 
+
+            if (obj instanceof SlideComposite) {
                 Document doc = Jsoup.parse("<html></html>");
                 SlideComposite slideComposite = (SlideComposite) obj;
                 List<SlideComponentInterface> slideElements = slideComposite.getAllSlideElements();
@@ -63,13 +73,12 @@ public class HtmlFileProcessor extends FileProcessor {
                     if (!strings.isEmpty()) {
                         doc.body().append(strings);
                     }
-                } 
+                }
                 fileOutputStream.WriteContent(outputStream, doc.toString().getBytes());
             }
             slideCounter++;
             fileOutputStream.CloseOutputStream(outputStream);
         }
-
     }
 
     private ArrayList<SlideComponentInterface> loadHtmlFile(String filePath) {
@@ -110,5 +119,5 @@ public class HtmlFileProcessor extends FileProcessor {
         }
 
         return slideProcessor.CreateSlideCompositeArray(htmlElement);
-    } 
+    }
 }

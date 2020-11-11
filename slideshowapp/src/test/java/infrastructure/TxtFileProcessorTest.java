@@ -27,6 +27,12 @@ import static org.mockito.Mockito.when;
 
 public class TxtFileProcessorTest {
 
+    @Mock
+    private SlideProcessorInterface slideProcessorMock;
+    private SlideComponentInterface slideComponentInterfaceMock;
+    private FileOutputStreamWrapperInterface fileOutputStreamWrapperInterfaceMock;
+    private FileWrapperInterface fileWrapperInterfaceMock;
+
     public TxtFileProcessorTest() {
         // mocking interfaces to be added through the constructor, thus by injection
         slideProcessorMock = mock(SlideProcessorInterface.class);
@@ -34,12 +40,6 @@ public class TxtFileProcessorTest {
         fileWrapperInterfaceMock = mock(FileWrapperInterface.class);
         fileOutputStreamWrapperInterfaceMock = mock(FileOutputStreamWrapperInterface.class);
     }
-
-    @Mock
-    private SlideProcessorInterface slideProcessorMock;
-    private SlideComponentInterface slideComponentInterfaceMock;
-    private FileOutputStreamWrapperInterface fileOutputStreamWrapperInterfaceMock;
-    private FileWrapperInterface fileWrapperInterfaceMock;
 
     @Test
     public void WhenMethodLoadFileIsCalledWithAnSlideElement_ThenAnArrayWithThreeElementsIsReturned() {
@@ -107,13 +107,13 @@ public class TxtFileProcessorTest {
                 fileOutputStreamWrapperInterfaceMock);
 
         ArrayList<SlideComponentInterface> slides = new ArrayList<>();
-        SlideComposite composite = new SlideComposite(); 
+        SlideComposite composite = new SlideComposite();
         composite.add(new Title(Color.yellow, "test strinig", new Level(1, 10, 20)));
         slides.add(composite);
-        
+
         File file = new File("dummy file");
         FileOutputStream fileStream = null;
-        
+
         try {
             fileStream = new FileOutputStream(file, false);
         } catch (IOException ex) {
