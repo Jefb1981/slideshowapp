@@ -47,6 +47,46 @@ public class HtmlFileProcessor extends FileProcessor {
         return loadHtmlFile(filePath);
     }
 
+    private ArrayList<SlideComponentInterface> loadHtmlFile(String filePath) {
+        String delimiters = ";;\\s*|\\;; \\s*";
+        String replacement = ";;";
+        String breakExpression = "(?i)<br[^>]*>";
+        String htmlContent = slideProcessor.readLineByLineFileContent(filePath);
+        Document htmlDocument = Jsoup.parse(htmlContent.replaceAll(breakExpression, replacement), "UTF-8");
+
+        HtmlElement htmlElement = new HtmlElement();
+
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.TITLE.getElement())) {
+            htmlElement.setTitle(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.TITLE.getElement()));
+        }
+
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.SUBTITLE.getElement())) {
+            htmlElement.setSubtitle(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.SUBTITLE.getElement()));
+        }
+
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL1.getElement())) {
+            htmlElement.setLevel1(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL1.getElement()).split(delimiters));
+        }
+
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL2.getElement())) {
+            htmlElement.setLevel2(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL2.getElement()).split(delimiters));
+        }
+
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL3.getElement())) {
+            htmlElement.setLevel3(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL3.getElement()).split(delimiters));
+        }
+
+        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL4.getElement())) {
+            htmlElement.setLevel4(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL4.getElement()).split(delimiters));
+        }
+
+        if (!htmlDocument.body().getElementsByTag("img").isEmpty()) {
+            htmlElement.setImages(htmlDocument.body().getElementsByTag("img"));
+        }
+
+        return slideProcessor.CreateSlideCompositeArray(htmlElement);
+    }
+
     @Override
     public void saveFile(String filePath, ArrayList<SlideComponentInterface> slides) {
         if (slides.size() > 0) {
@@ -81,43 +121,4 @@ public class HtmlFileProcessor extends FileProcessor {
         }
     }
 
-    private ArrayList<SlideComponentInterface> loadHtmlFile(String filePath) {
-        String delimiters = ";;\\s*|\\;; \\s*";
-        String replacement = ";;";
-        String regularExpression = "(?i)<br[^>]*>";
-        String htmlContent = slideProcessor.readLineByLineFileContent(filePath);
-        Document htmlDocument = Jsoup.parse(htmlContent.replaceAll(regularExpression, replacement), "UTF-8");
-
-        HtmlElement htmlElement = new HtmlElement();
-
-        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.TITLE.getElement())) {
-            htmlElement.setTitle(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.TITLE.getElement()));
-        }
-
-        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.SUBTITLE.getElement())) {
-            htmlElement.setSubtitle(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.SUBTITLE.getElement()));
-        }
-
-        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL1.getElement())) {
-            htmlElement.setLevel1(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL1.getElement()).split(delimiters));
-        }
-
-        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL2.getElement())) {
-            htmlElement.setLevel2(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL2.getElement()).split(delimiters));
-        }
-
-        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL3.getElement())) {
-            htmlElement.setLevel3(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL3.getElement()).split(delimiters));
-        }
-
-        if (htmlProcessorHelper.isElementsByIdFound(htmlDocument, SlideElements.LEVEL4.getElement())) {
-            htmlElement.setLevel4(htmlProcessorHelper.getElementById(htmlDocument, SlideElements.LEVEL4.getElement()).split(delimiters));
-        }
-
-        if (!htmlDocument.body().getElementsByTag("img").isEmpty()) {
-            htmlElement.setImages(htmlDocument.body().getElementsByTag("img"));
-        }
-
-        return slideProcessor.CreateSlideCompositeArray(htmlElement);
-    }
 }

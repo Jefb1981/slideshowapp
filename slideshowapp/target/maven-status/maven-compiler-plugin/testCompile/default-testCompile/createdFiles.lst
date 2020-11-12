@@ -1,3 +1,4 @@
 userinterface\ProjectorTest.class
 infrastructure\HtmlFileProcessorTest.class
+infrastructure\SlideProcessorTest.class
 infrastructure\TxtFileProcessorTest.class

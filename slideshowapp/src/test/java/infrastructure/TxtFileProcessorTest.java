@@ -28,10 +28,10 @@ import static org.mockito.Mockito.when;
 public class TxtFileProcessorTest {
 
     @Mock
-    private SlideProcessorInterface slideProcessorMock;
-    private SlideComponentInterface slideComponentInterfaceMock;
-    private FileOutputStreamWrapperInterface fileOutputStreamWrapperInterfaceMock;
-    private FileWrapperInterface fileWrapperInterfaceMock;
+    private final SlideProcessorInterface slideProcessorMock;
+    private final SlideComponentInterface slideComponentInterfaceMock;
+    private final FileOutputStreamWrapperInterface fileOutputStreamWrapperInterfaceMock;
+    private final FileWrapperInterface fileWrapperInterfaceMock;
 
     public TxtFileProcessorTest() {
         // mocking interfaces to be added through the constructor, thus by injection
