@@ -202,16 +202,16 @@ public class Projector {
             FileProcessor dataProcessor = getInstanceFileProcessor(getFileExtension(jFileChooser.getSelectedFile()));
 
             if (dataProcessor != null) {
-                // we have to have something showing on the screen before saving it!
+                // we have to have something on the screen before saving it!
                 if (!listSlides.isEmpty()) {
                     dataProcessor.saveFile(file.getAbsolutePath(), listSlides);
                 } else {
-                    // todo: show it as a pop up?
+                    // todo: show it on screen as a pop up?
                     System.out.println("Nothing to save");
                 }
             } else {
-                System.out.println("No txt or html file choosen");
-                System.out.println("File Name: " + file.getName());
+                // todo: show it on screen as a pop up?
+                System.out.println("No txt or html file choosen:" + file.getName()); 
             }
 
         }
