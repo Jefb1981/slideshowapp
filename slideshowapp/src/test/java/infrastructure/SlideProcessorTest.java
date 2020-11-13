@@ -1,17 +1,14 @@
 package infrastructure;
 
 import domaincore.HtmlElement;
-import domaincore.Level;
-import domaincore.SlideElements;
-import domaincore.SlideHelpers;
+import domaincore.Level; 
 import domainservices.Figure;
 import domainservices.SlideComponentInterface;
 import domainservices.SlideComposite;
 import domainservices.Text;
 import domainservices.Title;
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.ArrayList; 
 import org.junit.Test;
 import static org.junit.Assert.*;
 

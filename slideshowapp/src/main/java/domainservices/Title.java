@@ -30,12 +30,12 @@ public class Title extends SlideComponent {
 
     @Override
     public void add(SlideComponentInterface slide) {
-        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override

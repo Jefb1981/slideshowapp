@@ -62,10 +62,4 @@ abstract class SlideComponent implements SlideComponentInterface {
             disableSelectionStyle(graphics);
         }
     }
-//	@Override
-//	public void appendSlideItem(SlideItem anItem) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
 }

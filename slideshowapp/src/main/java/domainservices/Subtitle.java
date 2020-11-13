@@ -1,12 +1,8 @@
 package domainservices;
 
 import domaincore.Level;
-import domaincore.Level;
-import domainservices.SlideComponent;
-import domainservices.SlideComponentInterface;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
 
 public class Subtitle extends SlideComponent {
 
@@ -34,14 +30,12 @@ public class Subtitle extends SlideComponent {
 
     @Override
     public void add(SlideComponentInterface slide) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override

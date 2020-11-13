@@ -3,9 +3,8 @@ package domainservices;
 import domaincore.Level;
 import java.awt.Color;
 import java.awt.Graphics;
-// this is not a image is a figure create with x , y and z coordinates
-// what is a little limited form of images
 
+// This object is not a image as an figure that can be create with x , y and z coordinates
 public class Figure extends SlideComponent {
 
     private String url;
@@ -38,14 +37,12 @@ public class Figure extends SlideComponent {
 
     @Override
     public void add(SlideComponentInterface slide) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override

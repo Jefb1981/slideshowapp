@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package infrastructure;
 
 import domaincore.Level;
@@ -76,8 +71,8 @@ public class TxtFileProcessorTest {
                 + "";
 
         // returning values of methods with our own responses
-        // Matcher any betekent hier dat het niet uitmaakt met welke string dit method wordt aangeroepen.
-        // als het maar een string is
+        // Matcher any betekent hier dat het niet uitmaakt met welke string waarde dit method wordt aangeroepen.
+        // als het maar een string is!
         when(slideProcessorMock.readLineByLineFileContent(Matchers.anyString())).thenReturn(expected);
         // the object that with every call will be returned
         Title title = new Title(Color.yellow, "test strinig", new Level(1, 10, 20));
@@ -95,7 +90,7 @@ public class TxtFileProcessorTest {
         // Controleren of the method de gewenste waarden teruggeeft
         assertNotNull(result);
         assertEquals(3, result.size());
-        // mogelijk controleren van de inhoud waarden van de array
+        // mogelijk extra controleren van de inhoud waarden van de array elementen
     }
 
     @Test

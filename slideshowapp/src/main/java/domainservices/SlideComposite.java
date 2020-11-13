@@ -11,7 +11,7 @@ public class SlideComposite extends SlideComponent {
 
     // Default constructor
     public SlideComposite() {
-        super(Color.BLACK, "", new Level(0,0, 0));
+        super(Color.BLACK, "", new Level(0, 0, 0));
     }
 
     public void add(SlideComponentInterface component) {
