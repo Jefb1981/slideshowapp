@@ -20,10 +20,10 @@ import java.util.ArrayList;
 
 public class Projector {
 
-    private EditorCanvas canvas;
+    private final EditorCanvas canvas;
     private int currentSlideNumber = 0;
-    private SlideComponentInterface slideComposite = new SlideComposite();
-    private ArrayList<SlideComponentInterface> listSlides = new ArrayList<>();
+    private final SlideComponentInterface slideComposite = new SlideComposite();
+    private final ArrayList<SlideComponentInterface> listSlides = new ArrayList<>();
     private JFileChooser jFileChooser;
     private FileNameExtensionFilter fileNameExtensionFilter;
 
@@ -237,20 +237,5 @@ public class Projector {
             return fileName.substring(fileName.lastIndexOf(".") + 1);
         }
         return "";
-    }
-
-    /* TODO: remove! never add methods to facilitate unittests 
-     * for testing purposes
-     */
-    public SlideComponentInterface getSlideComposite() {
-        return slideComposite;
-    }
-
-    /* TODO: remove! never add methods to facilitate unittests 
-     * for testing purposes
-     */
-    public String testFileExtension() {
-        File file = new File("..\\Documents\\Slide_txt_example.txt");
-        return getFileExtension(file);
     }
 }
