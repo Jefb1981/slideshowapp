@@ -1,8 +1,8 @@
 package domainservices;
- 
-import domaincore.Level; 
+
+import domaincore.Level;
 import java.awt.Color;
-import java.awt.Graphics; 
+import java.awt.Graphics;
 
 public class Title extends SlideComponent {
 
@@ -40,6 +40,11 @@ public class Title extends SlideComponent {
 
     @Override
     public int getSize() {
-        throw new UnsupportedOperationException("Not supported yet.");  
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public SlideComponentInterface getSlide(int number) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -46,6 +46,11 @@ public class Subtitle extends SlideComponent {
 
     @Override
     public int getSize() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public SlideComponentInterface getSlide(int number) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

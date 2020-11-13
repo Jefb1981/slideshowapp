@@ -7,7 +7,7 @@ public interface SlideComponentInterface {
     int getX();
 
     int getY();
-    
+
     int getSize();
 
     void select();
@@ -19,6 +19,8 @@ public interface SlideComponentInterface {
     void paint(Graphics graphics);
 
     void add(SlideComponentInterface slide);
+
+    SlideComponentInterface getSlide(int number);
 
     void clear();
 }

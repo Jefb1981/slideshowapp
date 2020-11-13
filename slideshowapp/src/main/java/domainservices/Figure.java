@@ -53,4 +53,9 @@ public class Figure extends SlideComponent {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public SlideComponentInterface getSlide(int number) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
