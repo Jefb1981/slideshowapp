@@ -13,7 +13,7 @@ public class Subtitle extends SlideComponent {
         this.subtitle = subtitle;
     }
 
-    public void setSubTitle(String title) {
+    public void setSubTitle(String subtitle) {
         this.subtitle = subtitle;
     }
 

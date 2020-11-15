@@ -26,16 +26,17 @@ public class Projector {
     private final ArrayList<SlideComponentInterface> listSlides = new ArrayList<>();
     private JFileChooser jFileChooser;
     private FileNameExtensionFilter fileNameExtensionFilter;
+    FileProcessor dataProcessor;
 
     public Projector() {
         canvas = new EditorCanvas();
-        slideComposite.clear();
+        slideComposite.clear();        
     }
 
     public void startShow() {
         slideComposite.clear();
         // new title object has to be created by a factory
-        SlideComponentInterface defaultSlide = (SlideComponentInterface) new Title(Color.BLUE, "Welkom!", new Level(0,10, 20));
+        SlideComponentInterface defaultSlide = (SlideComponentInterface) new Title(Color.BLUE, "Welkom!", new Level(0, 10, 20));
         loadShapes(defaultSlide);
         canvas.refresh();
     }
@@ -174,8 +175,7 @@ public class Projector {
         if (returnValue == JFileChooser.APPROVE_OPTION) {
 
             File[] files = jFileChooser.getSelectedFiles();
-            FileProcessor dataProcessor
-                    = getInstanceFileProcessor(getFileExtension(jFileChooser.getSelectedFile()));
+            dataProcessor = getInstanceFileProcessor(getFileExtension(jFileChooser.getSelectedFile()));
 
             if (dataProcessor != null && files.length > 0) {
                 for (File file : files) {
@@ -194,12 +194,12 @@ public class Projector {
     private void SavedFile() {
         jFileChooser = new JFileChooser();
         jFileChooser.setDialogTitle("Save to Text, Html or Xml file");
-        
+
         int retval = jFileChooser.showSaveDialog(null);
         if (retval == JFileChooser.APPROVE_OPTION) {
 
             File file = jFileChooser.getSelectedFile();
-            FileProcessor dataProcessor = getInstanceFileProcessor(getFileExtension(jFileChooser.getSelectedFile()));
+            dataProcessor = getInstanceFileProcessor(getFileExtension(jFileChooser.getSelectedFile()));
 
             if (dataProcessor != null) {
                 // we have to have something on the screen before saving it!
@@ -211,7 +211,7 @@ public class Projector {
                 }
             } else {
                 // todo: show it on screen as a pop up?
-                System.out.println("No txt or html file choosen:" + file.getName()); 
+                System.out.println("No txt or html file choosen:" + file.getName());
             }
 
         }

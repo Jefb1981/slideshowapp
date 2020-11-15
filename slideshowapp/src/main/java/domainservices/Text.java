@@ -17,8 +17,8 @@ public class Text extends SlideComponent {
         return text;
     }
 
-    public void setText(String title) {
-        this.title = title;
+    public void setText(String text) {
+        this.text = text;
     }
 
     @Override
