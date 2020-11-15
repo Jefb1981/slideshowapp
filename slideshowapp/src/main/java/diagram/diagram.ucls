@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="domaincore.FileOutputStreamWrapper" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domaincore/FileOutputStreamWrapper.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="552" y="577"/>    
+    <position height="-1" width="-1" x="652" y="476"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="domaincore.Level" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domaincore/Level.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="710" y="991"/>    
+    <position height="-1" width="-1" x="37" y="678"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <enumeration id="6" language="java" name="domaincore.SlideElements" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domaincore/SlideElements.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="257" width="183" x="793" y="748"/>    
+    <position height="257" width="183" x="765" y="782"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="domainservices.Figure" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/Figure.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="119" y="1192"/>    
+    <position height="-1" width="-1" x="98" y="1059"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="domainservices.Title" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/Title.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="491" y="1447"/>    
+    <position height="-1" width="-1" x="390" y="1387"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="domainservices.Text" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/Text.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="163" y="1344"/>    
+    <position height="-1" width="-1" x="118" y="1224"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="domainservices.Subtitle" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/Subtitle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="321" y="1413"/>    
+    <position height="-1" width="-1" x="236" y="1314"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="domainservices.SlideComponent" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/SlideComponent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="303" width="237" x="371" y="907"/>    
+    <position height="-1" width="-1" x="250" y="607"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="domainservices.SlideComposite" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/SlideComposite.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="137" y="853"/>    
+    <position height="-1" width="-1" x="598" y="742"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <interface id="14" language="java" name="domainservices.SlideComponentInterface" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/SlideComponentInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="148" y="566"/>    
+    <position height="-1" width="-1" x="205" y="172"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -130,7 +130,7 @@
   <interface id="15" language="java" name="domainservices.FileOutputStreamWrapperInterface" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/FileOutputStreamWrapperInterface.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="562" y="359"/>    
+    <position height="-1" width="-1" x="670" y="213"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -149,258 +149,261 @@
   <interface id="17" language="java" name="domainservices.HtmlProcessorHelpersInterface" project="slideshowapp" 
     file="/slideshowapp/src/main/java/domainservices/HtmlProcessorHelpersInterface.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1211" y="486"/>    
+    <position height="-1" width="-1" x="1044" y="448"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="18" language="java" name="infrastructure.FileProcessor" project="slideshowapp" 
-    file="/slideshowapp/src/main/java/infrastructure/FileProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1086" y="1575"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="19" language="java" name="infrastructure.HtmlFileProcessor" project="slideshowapp" 
-    file="/slideshowapp/src/main/java/infrastructure/HtmlFileProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="221" width="324" x="1118" y="1699"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="20" language="java" name="infrastructure.SlideProcessor" project="slideshowapp" 
-    file="/slideshowapp/src/main/java/infrastructure/SlideProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="178" width="347" x="696" y="1318"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="21" language="java" name="infrastructure.SlideProcessorInterface" project="slideshowapp" 
-    file="/slideshowapp/src/main/java/infrastructure/SlideProcessorInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="169" width="361" x="906" y="1115"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="22" language="java" name="infrastructure.TxtFileProcessor" project="slideshowapp" 
-    file="/slideshowapp/src/main/java/infrastructure/TxtFileProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="234" width="476" x="605" y="1698"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="23" language="java" name="infrastructure.XmlFileProcessor" project="slideshowapp" 
-    file="/slideshowapp/src/main/java/infrastructure/XmlFileProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="357" x="227" y="1728"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="24" language="java" name="slideshowapp.Demo" project="slideshowapp" 
+  <class id="18" language="java" name="slideshowapp.Demo" project="slideshowapp" 
     file="/slideshowapp/src/main/java/slideshowapp/Demo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="136" y="321"/>    
+    <position height="-1" width="-1" x="177" y="-232"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="userinterface.Projector" project="slideshowapp" 
+  <class id="19" language="java" name="userinterface.Projector.EditorCanvas" project="slideshowapp" 
     file="/slideshowapp/src/main/java/userinterface/Projector.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="905" y="39"/>    
+    <position height="-1" width="-1" x="1266" y="190"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="userinterface.Projector.EditorCanvas" project="slideshowapp" 
+  <class id="20" language="java" name="infrastructure.FileProcessor" project="slideshowapp" 
+    file="/slideshowapp/src/main/java/infrastructure/FileProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="123" width="360" x="765" y="1159"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="userinterface.Projector" project="slideshowapp" 
     file="/slideshowapp/src/main/java/userinterface/Projector.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="304" width="271" x="1120" y="93"/>    
+    <position height="-1" width="-1" x="992" y="-185"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="infrastructure.HtmlFileProcessor" project="slideshowapp" 
+    file="/slideshowapp/src/main/java/infrastructure/HtmlFileProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="219" width="445" x="1255" y="1066"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <generalization id="29">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <generalization id="30">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <nesting id="31">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="26"/>  
-  </nesting>  
-  <association id="32">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="33" name="slideComposite"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="35">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="14"/>  
-  </realization>  
-  <association id="36">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="37" name="slideComposite"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="39">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="40" name="children"/>      
-      <multiplicity id="41" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="42">    
+  <class id="23" language="java" name="infrastructure.TxtFileProcessor" project="slideshowapp" 
+    file="/slideshowapp/src/main/java/infrastructure/TxtFileProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="298" width="451" x="953" y="1343"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="infrastructure.XmlFileProcessor" project="slideshowapp" 
+    file="/slideshowapp/src/main/java/infrastructure/XmlFileProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="180" width="223" x="686" y="1380"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="25">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <association id="43">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="44" name="fileWrapper"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+  <generalization id="26">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <association id="27">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="28" name="canvas">        
+        <position height="20" width="48" x="1067" y="-1"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="32">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="33" name="fileWrapper">        
+        <position height="20" width="73" x="1247" y="866"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="46">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="17"/>  
-  </realization>  
-  <association id="47">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="48" name="fileOutputStream"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="51">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="52" name="canvas"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="55" name="slideProcessor"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="57">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <realization id="59">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="15"/>  
-  </realization>  
-  <realization id="60">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="16"/>  
-  </realization>  
-  <association id="61">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="62" name="listSlides"/>      
-      <multiplicity id="63" minimum="0" maximum="2147483647"/>    
+  <association id="35">    
+    <bendpoint x="548" y="1210"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="36" name="slideComposite">        
+        <position height="20" width="97" x="153" y="331"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="1">        
+        <position height="18" width="27" x="333" y="317"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="64">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="65" name="slideProcessor"/>      
-      <multiplicity id="66" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="67">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="68" name="level"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="70">    
+  <association id="38">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="71" name="slidesArray"/>      
-      <multiplicity id="72" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="73">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="74" name="htmlProcessorHelper"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
+      <attribute id="39" name="htmlProcessorHelper">        
+        <position height="20" width="129" x="1042" y="553"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="76">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="77">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="78" name="fileOutputStream"/>      
-      <multiplicity id="79" minimum="0" maximum="1"/>    
+  <association id="41">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="42" name="fileOutputStream">        
+        <position height="20" width="105" x="685" y="341"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="80">    
+  <association id="44">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="45" name="level">        
+        <position height="20" width="37" x="96" y="628"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-673" y="-313"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="48" name="children">        
+        <position height="20" width="56" x="327" y="370"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="2147483647">        
+        <position height="18" width="25" x="309" y="299"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="81" name="fileWrapper"/>      
-      <multiplicity id="82" minimum="0" maximum="1"/>    
+      <attribute id="51" name="fileOutputStream">        
+        <position height="20" width="105" x="589" y="311"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="53">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="19"/>  
+  </nesting>  
+  <realization id="54">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <realization id="55">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <association id="56">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="57" name="dataProcessor"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="59">    
+    <bendpoint x="553" y="-85"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="60" name="slideComposite"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <bendpoint x="767" y="108"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="63" name="listSlides"/>      
+      <multiplicity id="64" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="65">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="66">    
+    <bendpoint x="553" y="342"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="67" name="slidesArray">        
+        <position height="20" width="73" x="246" y="362"/>      
+      </attribute>      
+      <multiplicity id="68" minimum="0" maximum="2147483647">        
+        <position height="18" width="25" x="264" y="298"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="69">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <generalization id="70">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <generalization id="71">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="72">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <realization id="73">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </realization>  
+  <association id="74">    
+    <bendpoint x="1048" y="1068"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="75" name="fileWrapper"/>      
+      <multiplicity id="76" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1206" y="869"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
