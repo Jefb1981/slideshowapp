@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class Projector {
 
-    private final EditorCanvas canvas;
+    private final Screen canvas;
     private int currentSlideNumber = 0;
     private final SlideComponentInterface slideComposite = new SlideComposite();
     private final ArrayList<SlideComponentInterface> listSlides = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Projector {
     FileProcessor dataProcessor;
 
     public Projector() {
-        canvas = new EditorCanvas();
+        canvas = new Screen();
         slideComposite.clear();        
     }
 
@@ -71,7 +71,7 @@ public class Projector {
         return listSlides.get(number);
     }
 
-    private class EditorCanvas extends Canvas {
+    private class Screen extends Canvas {
 
         private static final long serialVersionUID = 1L;
         JFrame frame;
@@ -80,7 +80,7 @@ public class Projector {
 
         private static final int PADDING = 1;
 
-        EditorCanvas() {
+        Screen() {
             createFrame();
             refresh();
         }
