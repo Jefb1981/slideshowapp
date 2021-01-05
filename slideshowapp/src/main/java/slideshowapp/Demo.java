@@ -1,6 +1,5 @@
 package slideshowapp;
 
-
 import userinterface.Projector;
 
 public class Demo {

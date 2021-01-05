@@ -1,4 +1,4 @@
-package domainservices;
+ abstractpackage domainservices;
 
 import domaincore.Level;
 import java.awt.*;

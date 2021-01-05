@@ -35,7 +35,7 @@ public class Projector {
 
     public void startShow() {
         slideComposite.clear();
-        // new title object has to be created by a factory
+        // TODO: new title object has to be created by a factory
         SlideComponentInterface defaultSlide = (SlideComponentInterface) new Title(Color.BLUE, "Welkom!", new Level(0, 10, 20));
         loadShapes(defaultSlide);
         canvas.refresh();
@@ -129,12 +129,13 @@ public class Projector {
             frame.pack();
         }
 
+        @Override
         public void paint(Graphics graphics) {
             slideComposite.paint(graphics);
         }
 
         private void actionNextSlide(ActionEvent evt) {
-            if (listSlides.size() != 0) {
+            if (!listSlides.isEmpty()) {
                 nextSlide();
                 loadShapes(listSlides.get(currentSlideNumber));
                 repaint();
@@ -142,7 +143,7 @@ public class Projector {
         }
 
         private void actionPreviousSlide(ActionEvent evt) {
-            if (listSlides.size() != 0) {
+            if (!listSlides.isEmpty()) {
                 prevSlide();
                 loadShapes(listSlides.get(currentSlideNumber));
                 repaint();
@@ -158,7 +159,6 @@ public class Projector {
             SavedFile();
             repaint();
         }
-
     }
 
     private void LoadFile() {
@@ -219,8 +219,7 @@ public class Projector {
 
     private FileProcessor getInstanceFileProcessor(String extension) {
         switch (extension) {
-            case "txt":
-                System.out.println("TxtFileProcessor");
+            case "txt": 
                 return new TxtFileProcessor();
             case "html":
                 return new HtmlFileProcessor();

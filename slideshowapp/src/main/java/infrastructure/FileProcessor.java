@@ -1,4 +1,4 @@
-package infrastructure;
+FilePropackage infrastructure;
 
 import domainservices.SlideComponentInterface;
 import java.util.ArrayList;
